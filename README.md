@@ -2,6 +2,8 @@
 
 > **Production-ready RAG application** — Ask questions about any news articles using Google Gemini 2.5 Flash, local HuggingFace embeddings, ChromaDB vector search, and LangChain.
 
+🟢 **Live Demo:** [news-rag-assistant.streamlit.app](https://news-rag-assistant.streamlit.app/)
+
 ![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat-square&logo=python)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.41-FF4B4B?style=flat-square&logo=streamlit)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115-009688?style=flat-square&logo=fastapi)
