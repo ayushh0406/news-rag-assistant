@@ -221,7 +221,7 @@ def load_article(url: str) -> LoadResult:
         logger.info("Fetching article: {}", url)
         html = _fetch_html(url)
 
-        soup = BeautifulSoup(html, "lxml")
+        soup = BeautifulSoup(html, "html.parser")
         _remove_boilerplate(soup)
 
         title = _extract_title(soup)
