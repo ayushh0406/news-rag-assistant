@@ -402,6 +402,25 @@ def render_sidebar() -> None:
             unsafe_allow_html=True,
         )
 
+        # ── API Key Override ──
+        st.markdown('<div class="section-header">🔑 API Key</div>', unsafe_allow_html=True)
+        user_api_key = st.text_input(
+            "Google API Key",
+            type="password",
+            placeholder="Paste Gemini API Key (AIzaSy...)",
+            help="Enter your Google Gemini API key to override the default key in Streamlit Secrets.",
+            label_visibility="collapsed",
+        )
+        if user_api_key.strip():
+            from backend.config import settings
+            import os
+            if settings.google_api_key != user_api_key.strip():
+                settings.google_api_key = user_api_key.strip()
+                os.environ["GOOGLE_API_KEY"] = user_api_key.strip()
+                # Force pipeline to re-initialize LLM with new key
+                pipeline = _get_pipeline()
+                pipeline._llm = None
+
         # ── Status ──
         st.markdown('<div class="section-header">📊 Status</div>', unsafe_allow_html=True)
 
