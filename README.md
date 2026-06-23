@@ -35,7 +35,7 @@
 | 📎 **Source Citations** | Every answer links back to the originating article |
 | 💾 **Persistent Storage** | ChromaDB persists across restarts |
 | 🖥️ **Modern UI** | Premium dark-theme Streamlit dashboard |
-| ⚡ **REST API** | Full FastAPI backend with Swagger UI |
+| ⚡ **REST API** | Full FastAPI backend along with Swagger UI |
 | 🧪 **Test Suite** | Pytest unit + integration tests |
 | 📋 **Logging** | Loguru structured logging with file rotation |
 
@@ -177,7 +177,7 @@ uvicorn api:app --host 0.0.0.0 --port 8000 --reload
 
 ### Streamlit UI
 
-1. **Add URLs** — Enter up to 10 news article URLs in the sidebar text fields.
+1. **Add URLs** — Can enter up to 10 news article URLs in the sidebar text fields.
 2. **Process URLs** — Click **⚡ Process URLs** to fetch, chunk, embed, and store the articles.
 3. **Ask Questions** — Type questions in the chat box or click an example question.
 4. **View Sources** — Each AI answer includes clickable source citations.
