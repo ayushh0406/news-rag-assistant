@@ -36,9 +36,16 @@ st.set_page_config(
 )
 
 # ---------------------------------------------------------------------------
-# Logging
+# Logging & Secrets Injection
 # ---------------------------------------------------------------------------
 setup_logging()
+
+# Streamlit Cloud sometimes fails to inject secrets into os.environ before
+# pydantic_settings loads. We explicitly inject the API key here.
+if hasattr(st, "secrets") and "GOOGLE_API_KEY" in st.secrets:
+    settings.google_api_key = st.secrets["GOOGLE_API_KEY"]
+    import os
+    os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
 
 
 # ---------------------------------------------------------------------------
